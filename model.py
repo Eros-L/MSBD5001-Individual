@@ -188,6 +188,7 @@ class GameRating:
         # slice data
         x_train, y_train = modify, ground_truth
 
+        # train model on all data
         tree = RandomForestRegressor(n_estimators=4)
         tree.fit(x_train, y_train)
 
@@ -200,6 +201,7 @@ class GameRating:
         # slice data
         x_train, y_train = modify, ground_truth
 
+        # train model on data with non-zero playtime only
         tree = RandomForestRegressor(n_estimators=4)
         tree.fit(x_train, y_train)
 
@@ -230,9 +232,11 @@ class GameRating:
 
         playtime = tree.predict(x_test)
 
+        # if a predicted value is larger than 5, repredict with model trained on data with non-zero playtime only
         data['playtime_forever'] = np.where(data['playtime_forever'] > 5, playtime, data['playtime_forever'])
 
         data = data[['id', 'playtime_forever']]
+        # clamp the value of 'playtime_forever'
         data['playtime_forever'] = data['playtime_forever'].apply(lambda x: max(x, 0))
 
         data.set_index('id', inplace=True)
