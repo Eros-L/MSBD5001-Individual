@@ -58,7 +58,7 @@ Roughly, we do the same thing as we do with the GBDT Model, only except that we 
 
 Residual Neural Network is widely adopted in deep learning. For our project, we can simply build a network with the following architecture. 
 
-![](https://raw.githubusercontent.com/Eros-L/MSBD5001-Individual/attachment/residual_model.png)
+![](https://raw.githubusercontent.com/Eros-L/MSBD5001-Individual/master/attachment/residual_model.png)
 
 Batch Normalization and Dropout are used. 
 
@@ -70,6 +70,6 @@ For feature extracting, we use a pretrained network called BERT. BERT is a metho
 
 After that, we build a network with the following architecture. 
 
-![](https://raw.githubusercontent.com/Eros-L/MSBD5001-Individual/attachment/transfer_learning_model.png)
+![](https://github.com/Eros-L/MSBD5001-Individual/blob/master/attachment/transfer_learning_model.png)
 
 Batch Normalization and Dropout are used. 
